@@ -1,23 +1,23 @@
-import defaultImage from './assets/images/default.png';
+import defaultImage from './assets/images/logo_ud.png';
 
 const CONFIG = {
-  name: 'AstroWind',
+  name: 'Ingeniería económica',
 
   origin: 'https://astrowind.vercel.app',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'AstroWind — Free template for create a website with Astro + Tailwind CSS',
+  title: 'Ingeniería Económica: Maximizando el Valor del Dinero',
   description:
-    '🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.',
+    'Bienvenidos a nuestra página dedicada a la ingeniería económica, una disciplina que se enfoca en analizar y evaluar proyectos de inversión y financiamiento. Aquí encontrarás herramientas, recursos y soluciones financieras para maximizar el valor del dinero, ya sea en el ámbito empresarial, gubernamental o personal.',
   defaultImage: defaultImage,
 
-  defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  defaultTheme: 'light:only', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
-  language: 'en',
+  language: 'es',
   textDirection: 'ltr',
 
-  dateFormatter: new Intl.DateTimeFormat('en', {
+  dateFormatter: new Intl.DateTimeFormat('es', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -25,7 +25,7 @@ const CONFIG = {
   }),
 
   googleAnalyticsId: false, // or "G-XXXXXXXXXX",
-  googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
+  googleSiteVerificationId: '',
 
   blog: {
     disabled: false,

@@ -1,0 +1,23 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+
+import { headerData } from '~/data';
+
+const meta = {
+  title: 'Some App',
+};
+---
+
+<Layout {meta}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      isSticky
+    />
+  </Fragment>
+  <div class="py-12 px-20">
+    <slot />
+  </div>
+</Layout>
