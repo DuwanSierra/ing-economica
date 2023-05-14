@@ -11,7 +11,7 @@ const fieldsModel = {
     valorDeuda: 0,
     numeroPagos: 1,
     modalidadPago: 0,
-    tasaInteres: 1,
+    tasaInteres: '',
     modalidadInteres: '',
 };
 
@@ -52,12 +52,11 @@ const AmortizacionComponent:React.FC = () => {
 
     const submitAmortizacion = (e: FormEvent) => {
         e.preventDefault();
-        console.log(fields);
-
+        //TODO: Validar el formulario
         /**
          * Calcula el interes real de acuerdo a la modalidad de pago y la modalidad del interes
          */
-        const interesReal = convertirInteres(fields.modalidadPago, fields.tasaInteres, fields.modalidadInteres);
+        const interesReal = convertirInteres(fields.modalidadPago, parseFloat(fields.tasaInteres), fields.modalidadInteres);
         /**
          * Calcula la cuota de acuerdo al valor de la deuda, el interes real y el número de pagos
          */
@@ -154,12 +153,10 @@ const AmortizacionComponent:React.FC = () => {
                         className="input input-bordered w-full max-w-xs" 
                         id="interes"
                         name="interes"
-                        min="1" 
-                        max="100" 
-                        pattern="(^100(\.0{1,2})?$)|(^([1-9]([0-9])?)(\.[0-9]{1,2})?$)"
+                        pattern="(?!^0*$)(?!^0*\.0*$)^\d{1,2}(\.\d{1,2})?$"
                         required
                         value={fields.tasaInteres}
-                        onChange={(e) => setFields({...fields, tasaInteres: Number(e.target.value)})}
+                        onChange={(e) => setFields({...fields, tasaInteres: e.target.value})}
                         ></input>
                     <label className="label">
                         <span className="label-text-alt">La tasa de interes es requerida.</span>
@@ -217,7 +214,7 @@ const AmortizacionComponent:React.FC = () => {
                                     <tbody>
                                         {
                                             tablaAmortizacion.map((row, index) => (
-                                                <tr>
+                                                <tr key={index} >
                                                     <th>{row.periodo}</th>
                                                     <th>{row.saldo}</th>
                                                     <th>{row.interes}</th>

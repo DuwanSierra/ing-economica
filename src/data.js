@@ -7,12 +7,8 @@ export const headerData = {
       href: getPermalink('/amortizacion'),
     },
     {
-      text: 'Anticipada',
-      href: getPermalink('/anticipada'),
-    },
-    {
-      text: 'Anualidad ordinaria vencida',
-      href: getPermalink('/anualidad-ordinaria-vencida'),
+      text: 'Anualidades',
+      href: getPermalink('/anualidades'),
     },
     {
       text: 'Conversiones',

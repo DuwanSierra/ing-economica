@@ -1,0 +1,11 @@
+---
+import { Image } from '@astrojs/image/components';
+import eaterEgg from '../assets/images/easteregg.gif';
+
+let isBirthday = new Date().getMonth() === 5 && new Date().getDate() === 24;
+---
+<div class="fixed bottom-3 right-14">
+    {
+        isBirthday && <Image src={eaterEgg} alt="happy birthday Daniela" />
+    }
+</div>

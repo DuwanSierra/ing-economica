@@ -16,13 +16,23 @@ export const interesNominalJ = [
     { code: 'CS', value: 2, label: 'Anticipada Semestral' },
 ];
 
-export const interesEfectivaI = [
+export const interesEfectivaCapitalizar = [
     { code: 'EM', value: 12, label: 'Efectiva mensual' },
     { code: 'EB', value: 6, label: 'Efectiva bimestral' },
     { code: 'ET', value: 4, label: 'Efectiva trimestral' },
     { code: 'EC', value: 3, label: 'Efectiva cuatrimestral' },
     { code: 'ES', value: 2, label: 'Efectiva semestral' },
     { code: 'EA', value: 1, label: 'Efectiva anual' },
+    { code: 'CM', value: 12, label: 'Convertible mensual' },
+    { code: 'CB', value: 6, label: 'Convertible bimestral' },
+    { code: 'CT', value: 4, label: 'Convertible trimestral' },
+    { code: 'CC', value: 3, label: 'Convertible cuatrimestral' },
+    { code: 'CS', value: 3, label: 'Convertible semestral' },
+    { code: 'CA', value: 2, label: 'Convertible anual' },
+]
+
+export const interesEfectivaI = [
+    ...interesEfectivaCapitalizar,
     { code: 'PM', value: 12, label: 'Periódica mensual' },
     { code: 'PB', value: 6, label: 'Periódica bimestral' },
     { code: 'PT', value: 4, label: 'Periódica trimestral' },
@@ -30,6 +40,8 @@ export const interesEfectivaI = [
     { code: 'PS', value: 2, label: 'Periódica semestral' },
     { code: 'PA', value: 1, label: 'Periódica anual' },
 ];
+
+
 
 export const modalidadPago = [
     { value: 12, label: 'Mensual' },
@@ -134,16 +146,19 @@ export const calcularCuota = (valorDeuda: number, interes: number, nroPagos: num
     return parseFloat(a.toFixed(3));
 }
 
+
+
+
 /**
- * Calcula la cuota usando la formula de valor presente
- * @param {Es el valor de la deuda} p 
- * @param {Es el interes en decimal} i 
- * @param {Es el número de cuotas} n 
- * @returns La cuota
+ * Calcula la cuota futura usando la formula de valor presente
+ * @param { valorDeuda } El valor de la deuda 
+ * @param { interes } El interes 
+ * @param { nroPagos } El número de cuotas
+ * @returns El valor de la cuota
  */
- export const calculateFeeFuture = (p, i, n) => {
-    const bottomPart = (Math.pow(1 + i, n) - 1) / i;
-    const a = p / bottomPart;
+export const calcularCuotaFutura = (valorDeuda: number, interes: number, nroPagos: number) => {
+    const bottomPart = (Math.pow(1 + interes, nroPagos) - 1) / interes;
+    const a = valorDeuda / bottomPart;
 
     return parseFloat(a.toFixed(3));
 }
