@@ -47,7 +47,7 @@ const AnualidadPresenteComponent:React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-wrap">
+        <div className="flex flex-wrap">
             <form 
                 id="formulario-amortizacion" 
                 className="basis-2/4" 

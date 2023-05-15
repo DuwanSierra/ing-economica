@@ -85,51 +85,52 @@ export const convertirInteres = (modalidadPago: number, tasaInteres: number, mod
     return tasaInteres;
 }
 
-export const convertInterestT = (i, o, d) => {
-    let origen = interesEfectivaI.filter(k => k.code === o);
-    const destinoOriginal = interesEfectivaI.filter(k => k.code === d);
-    let destino = interesEfectivaI.filter(k => k.code === d);
+export const convertirTasasDeInteres = (tasaInteres: number, codigoTasaOrigen: string, codigoTasaDestino: string) => {
+    let origen = interesEfectivaI.filter(k => k.code === codigoTasaOrigen);
+    const destinoOriginal = interesEfectivaI.filter(k => k.code === codigoTasaDestino);
+    let destino = interesEfectivaI.filter(k => k.code === codigoTasaDestino);
 
-    i /= 100;
+    tasaInteres /= 100;
 
     // Valida si origen es j y destino es i
     if (origen.length == 0 && destino.length > 0) {
-        origen = interesNominalJ.filter(k => k.code === o);
-        i /= origen[0].value;
-        console.log('Origen es j: ', origen[0], 'Destino es i: ', destino[0]);
+        origen = interesNominalJ.filter(k => k.code === codigoTasaOrigen);
+        if(origen.length == 0) {
+            throw new Error('Origen not found');
+        }
+        tasaInteres /= origen[0].value;
     }
 
     if (origen.length == 0) {
-        origen = interesNominalJ.filter(k => k.code === o);
-        console.log('Origen es j: ', origen[0].value);
+        origen = interesNominalJ.filter(k => k.code === codigoTasaOrigen);
     }
 
     if (destino.length == 0) {
-        destino = interesNominalJ.filter(k => k.code === d);
-        console.log('Destino es j: ', destino[0]);
+        destino = interesNominalJ.filter(k => k.code === codigoTasaDestino);
     }
 
     // Valida si no están en el mismo periodo de tiempo el origen y el destino, si es asi, los convierte al mismo periodo de tiempo
     if (origen[0].value != destino[0].value) {
         const n = origen[0].value;
         const m = destino[0].value;
-        const value = Math.pow((1 + i), n);
-        i = Math.pow(value, 1 / m) - 1;
-        console.log('Conversión de tasas: ', origen[0]);
+        const value = Math.pow((1 + tasaInteres), n);
+        tasaInteres = Math.pow(value, 1 / m) - 1;
     }
 
 
     // Valida si origen es i y destino es j
     if (origen.length > 0 && destinoOriginal.length == 0) {
-        const destinoJ = interesNominalJ.filter(k => k.code === d);
-        i *= destinoJ[0].value;
-        console.log('Se convierte a j\nOrigen es i: ', origen[0], 'Destino es j: ', destino[0]);
+        const destinoJ = interesNominalJ.filter(k => k.code === codigoTasaDestino);
+        if(destinoJ.length == 0) {
+            throw new Error('Destino not found');
+        }
+        tasaInteres *= destinoJ[0].value;
     }
 
 
-    i *= 100;
+    tasaInteres *= 100;
 
-    return i.toFixed(2);
+    return tasaInteres.toFixed(3);
 }
 
 /**
