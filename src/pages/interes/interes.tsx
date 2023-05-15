@@ -12,16 +12,19 @@ const InteresComponent:React.FC = () => {
     const [fields, setFields] = useState(fieldsModel);
     const [interesCompuesto, setInteresCompuesto] = useState(false);
     const [result, setResult] = useState('');
+    const [resultTotal, setResultTotal] = useState('');
 
     const calcularInteresSimple = () => {
         let resultNumber = fields.valorDeuda * (parseFloat(fields.tasaInteres) / 100) * fields.tiempo;
-        setResult(convertNumber(resultNumber))
+        setResult(convertNumber(resultNumber));
+        setResultTotal(convertNumber(resultNumber + fields.valorDeuda));
     }
     
     const calcularInteresCompuesto = () => {
         let tasaMultiplicar = Math.pow((1 + (parseFloat(fields.tasaInteres) / 100)), fields.tiempo);
         let resultNumber = fields.valorDeuda * tasaMultiplicar;
-        setResult(convertNumber(resultNumber));
+        setResult(convertNumber(resultNumber - fields.valorDeuda));
+        setResultTotal(convertNumber(resultNumber));
     }
 
     const submitInteres = (e: FormEvent) => {
@@ -129,12 +132,18 @@ const InteresComponent:React.FC = () => {
                 </div>
             </form>
             {
-                result &&
-                <div className="basis-2/4">
-                    <div className="card w-96 bg-base-100 shadow-xl">
+                result && resultTotal &&
+                <div className="basis-1/4">
+                    <div className="card w-96 bg-base-100 shadow-xl my-8">
                         <div className="card-body">
                             <h2 className="card-title">{result}</h2>
-                            <p>Este es el valor</p>
+                            <p>Este es el valor del interes</p>
+                        </div>
+                    </div>
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className="card-title">{resultTotal}</h2>
+                            <p>Este es el valor total</p>
                         </div>
                     </div>
                 </div>
