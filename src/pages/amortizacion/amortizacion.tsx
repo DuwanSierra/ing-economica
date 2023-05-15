@@ -230,7 +230,7 @@ const AmortizacionComponent:React.FC = () => {
                     )
                 }
             </div>
-        </div>
+      </div>
     </>
   )
 
