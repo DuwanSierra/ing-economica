@@ -3,8 +3,8 @@ import defaultImage from './assets/images/logo_ud.png';
 const CONFIG = {
   name: 'Ingeniería económica',
 
-  origin: 'https://astrowind.vercel.app',
-  basePathname: '/',
+  origin: 'https://duwansierra.github.io',
+  basePathname: '/ing-economica/',
   trailingSlash: false,
 
   title: 'Ingeniería Económica: Maximizando el Valor del Dinero',
