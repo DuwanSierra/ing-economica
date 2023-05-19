@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from 'react'
 import { convertNumber } from '~/utils/conversiones';
+import  Image  from '~/components/react/ImageComponent';
 
 const fieldsModel = {
     valorDeuda: 0,
@@ -147,6 +148,11 @@ const InteresComponent:React.FC = () => {
                         </div>
                     </div>
                 </div>
+            }
+            {
+                !result && !resultTotal && (
+                    <Image></Image>
+                )
             }
       </div>
     </>

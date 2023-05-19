@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { interesNominalJ, interesEfectivaI, convertirTasasDeInteres } from '~/utils/conversiones';
-
+import  Image  from '~/components/react/ImageComponent';
 
 const modalidadInteresOptions = [
   ...interesNominalJ,
@@ -120,6 +120,12 @@ const ConversionesComponent:React.FC = () => {
                         </div>
                     </div>
                 </div>
+            }
+            {
+                !tasaInteresConvertida && (
+                    <Image></Image>
+                    
+                )
             }
       </div>
     </>

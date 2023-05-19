@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from 'react'
 import { ICuotaCurrencyModel } from '~/models/icuota.model';
 import { calcularCuota, calcularCuotaFutura, convertNumber, convertirInteres, interesEfectivaCapitalizar, modalidadPago } from '~/utils/conversiones';
+import  Image  from '~/components/react/ImageComponent';
 
 const fieldsModel = {
     valorCapitalizar: 0,
@@ -218,6 +219,11 @@ const CapitalizacionComponent: React.FC = () => {
                                 </table>
                             </div>
                         </>
+                    )
+                }
+                {
+                    !tablaCapitalizacion.length && (
+                        <Image></Image>
                     )
                 }
                 </div>

@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from 'react'
 import { ICuotaCurrencyModel, ICuotaModel } from '~/models/icuota.model';
 import { calcularCuota, convertNumber, convertirInteres, interesEfectivaI, interesNominalJ, modalidadPago } from '~/utils/conversiones';
+import  Image  from '~/components/react/ImageComponent';
 
 const modalidadInteresOptions = [
     ...interesNominalJ,
@@ -74,7 +75,7 @@ const AmortizacionComponent:React.FC = () => {
       <div className="flex flex-wrap">
             <form 
                 id="formulario-amortizacion" 
-                className="basis-1/4" 
+                className="basis-2/4" 
                 noValidate
                 onSubmit={submitAmortizacion}
                 >
@@ -192,7 +193,7 @@ const AmortizacionComponent:React.FC = () => {
                 </div>
             </form>
 
-            <div className="basis-3/4">
+            <div className="basis-2/4">
                 {
                     tablaAmortizacion.length>0 && (
                         <>
@@ -227,6 +228,11 @@ const AmortizacionComponent:React.FC = () => {
                                 </table>
                             </div>
                         </>
+                    )
+                }
+                {
+                    !tablaAmortizacion.length && (
+                        <Image></Image>
                     )
                 }
             </div>

@@ -1,5 +1,7 @@
 import React, { FormEvent, useState } from 'react'
-import { convertNumber, interesEfectivaI, interesNominalJ } from '~/utils/conversiones';
+import { convertNumber } from '~/utils/conversiones';
+import  Image  from '~/components/react/ImageComponent';
+
 
 const fieldsModel = {
     valorPresente: 0,
@@ -184,6 +186,11 @@ const AnualidadPresenteComponent:React.FC = () => {
                         </div>
                     </div>
                 </div>
+            }
+            {
+                !valorPresente && (
+                    <Image></Image>
+                )
             }
         </div>
     </>

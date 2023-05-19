@@ -1,7 +1,16 @@
 ---
-
+import { Picture } from '@astrojs/image/components';
+const logo = { src: import('~/assets/images/logo_ud_mini.webp'), alt: 'Universidad distrital Logo' };
 ---
 
-<span class="self-center ml-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  UDFJC</span
->
+<div class="self-center text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-2">
+  <Picture
+    class="w-20 h-20 object-contain"
+    widths={[128]}
+    loading="eager"
+    width={128}
+    height={128}
+    {...logo}
+  />
+  <span>UDFJC</span>
+</div>

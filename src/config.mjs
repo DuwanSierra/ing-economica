@@ -12,7 +12,7 @@ const CONFIG = {
     'Bienvenidos a nuestra página dedicada a la ingeniería económica, una disciplina que se enfoca en analizar y evaluar proyectos de inversión y financiamiento. Aquí encontrarás herramientas, recursos y soluciones financieras para maximizar el valor del dinero, ya sea en el ámbito empresarial, gubernamental o personal.',
   defaultImage: defaultImage,
 
-  defaultTheme: 'light:only', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
   language: 'es',
   textDirection: 'ltr',
