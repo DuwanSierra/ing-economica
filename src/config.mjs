@@ -4,7 +4,7 @@ const CONFIG = {
   name: 'Ingeniería económica',
 
   origin: 'https://duwansierra.github.io',
-  basePathname: '/ing-economica/',
+  basePathname: '/ing-economica',
   trailingSlash: false,
 
   title: 'Ingeniería Económica: Maximizando el Valor del Dinero',
