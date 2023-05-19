@@ -149,11 +149,6 @@ const InteresComponent:React.FC = () => {
                     </div>
                 </div>
             }
-            {
-                !result && !resultTotal && (
-                    <Image></Image>
-                )
-            }
       </div>
     </>
   )
