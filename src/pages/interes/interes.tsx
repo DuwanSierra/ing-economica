@@ -133,21 +133,23 @@ const InteresComponent:React.FC = () => {
                 </div>
             </form>
             {
-                result && resultTotal &&
-                <div className="basis-1/4">
-                    <div className="card w-96 bg-base-100 shadow-xl my-8">
-                        <div className="card-body">
-                            <h2 className="card-title">{result}</h2>
-                            <p>Este es el valor del interes</p>
+                result && resultTotal && (
+                    <div className="basis-1/4">
+                        <div className="card w-96 bg-base-100 shadow-xl my-8">
+                            <div className="card-body">
+                                <h2 className="card-title">{result}</h2>
+                                <p>Este es el valor del interes</p>
+                            </div>
+                        </div>
+                        <div className="card w-96 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title">{resultTotal}</h2>
+                                <p>Este es el valor total</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="card w-96 bg-base-100 shadow-xl">
-                        <div className="card-body">
-                            <h2 className="card-title">{resultTotal}</h2>
-                            <p>Este es el valor total</p>
-                        </div>
-                    </div>
-                </div>
+                )
+                
             }
       </div>
     </>
