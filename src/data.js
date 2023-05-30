@@ -45,6 +45,7 @@ export const footerData = {
       title: 'Desarrolladores',
       links: [
         { text: 'Duwan Sierra 20231678001', href: '#' },
+        { text: 'Javier Espitia 20231678028', href: '#'}
       ],
     },
   ],

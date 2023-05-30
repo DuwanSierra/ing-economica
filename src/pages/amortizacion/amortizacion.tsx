@@ -88,11 +88,10 @@ const AmortizacionComponent:React.FC = () => {
                         type="text" 
                         placeholder="$" 
                         className="input input-bordered w-full max-w-xs" 
-                        min="0" 
                         id="valor-deuda"
                         name="valorDeuda" required
                         value={fields.valorDeuda}
-                        onChange={(e) => setFields({...fields, valorDeuda: Number(e.target.value)})}
+                        onChange={(e) => setFields({...fields, valorDeuda: Number(e.target.value.replace(/\D/,''))})}
                         />
                     <label className="label">
                         <span className="label-text-alt">El valor de la deuda no puede estar en blanco o ser negativo.</span>
