@@ -17,28 +17,28 @@ export const interesNominalJ = [
 ];
 
 export const interesEfectivaCapitalizar = [
-    { code: 'EM', value: 12, label: 'Efectiva mensual' },
-    { code: 'EB', value: 6, label: 'Efectiva bimestral' },
-    { code: 'ET', value: 4, label: 'Efectiva trimestral' },
-    { code: 'EC', value: 3, label: 'Efectiva cuatrimestral' },
-    { code: 'ES', value: 2, label: 'Efectiva semestral' },
-    { code: 'EA', value: 1, label: 'Efectiva anual' },
-    { code: 'CM', value: 12, label: 'Convertible mensual' },
-    { code: 'CB', value: 6, label: 'Convertible bimestral' },
-    { code: 'CT', value: 4, label: 'Convertible trimestral' },
-    { code: 'CC', value: 3, label: 'Convertible cuatrimestral' },
-    { code: 'CS', value: 3, label: 'Convertible semestral' },
-    { code: 'CA', value: 2, label: 'Convertible anual' },
+    { code: 'EM', value: 12, label: 'Efectiva Mensual' },
+    { code: 'EB', value: 6, label: 'Efectiva Bimestral' },
+    { code: 'ET', value: 4, label: 'Efectiva Trimestral' },
+    { code: 'EC', value: 3, label: 'Efectiva Cuatrimestral' },
+    { code: 'ES', value: 2, label: 'Efectiva Semestral' },
+    { code: 'EA', value: 1, label: 'Efectiva Anual' },
+    { code: 'CM', value: 12, label: 'Convertible Mensual' },
+    { code: 'CB', value: 6, label: 'Convertible Bimestral' },
+    { code: 'CT', value: 4, label: 'Convertible Trimestral' },
+    { code: 'CC', value: 3, label: 'Convertible Cuatrimestral' },
+    { code: 'CS', value: 3, label: 'Convertible Semestral' },
+    { code: 'CA', value: 2, label: 'Convertible Anual' },
 ]
 
 export const interesEfectivaI = [
     ...interesEfectivaCapitalizar,
-    { code: 'PM', value: 12, label: 'Periódica mensual' },
-    { code: 'PB', value: 6, label: 'Periódica bimestral' },
-    { code: 'PT', value: 4, label: 'Periódica trimestral' },
-    { code: 'PC', value: 3, label: 'Periódica cuatrimestral' },
-    { code: 'PS', value: 2, label: 'Periódica semestral' },
-    { code: 'PA', value: 1, label: 'Periódica anual' },
+    { code: 'PM', value: 12, label: 'Periódica Mensual' },
+    { code: 'PB', value: 6, label: 'Periódica Bimestral' },
+    { code: 'PT', value: 4, label: 'Periódica Trimestral' },
+    { code: 'PC', value: 3, label: 'Periódica Cuatrimestral' },
+    { code: 'PS', value: 2, label: 'Periódica Semestral' },
+    { code: 'PA', value: 1, label: 'Periódica Anual' },
 ];
 
 
@@ -171,4 +171,14 @@ export const calcularCuotaFutura = (valorDeuda: number, interes: number, nroPago
  */
 export const convertNumber = (value) => {
     return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
+}
+
+/**
+ * Convierte un valor a pesos colombianos
+ * @param {El valor a convertir} value 
+ * @returns 
+ */
+export const calcularValorPresenteRP = (valorRentaPerpetua: number, interes: number) => {
+    const valorPresente = valorRentaPerpetua / interes;
+    return parseFloat(valorPresente.toFixed(3));
 }
