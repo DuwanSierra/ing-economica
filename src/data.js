@@ -38,14 +38,16 @@ export const footerData = {
       links: [
         { text: 'Código fuente', href: '' },
         { text: 'Grupo 301', href: '' },
-        { text: 'Ingeniería económica', href: '' },
-      ],
+        { text: 'Ingeniería económica', href: '' }
+      ]
     },
     {
       title: 'Desarrolladores',
       links: [
         { text: 'Duwan Sierra 20231678001', href: '#' },
-        { text: 'Javier Espitia 20231678028', href: '#'}
+        { text: 'Javier Espitia 20231678028', href: '#'},
+        { text: 'Stiven Borda 20231678044', href: '#'},
+        { text: 'Gian Carrascal 20221678043', href: '#'}
       ],
     },
   ],
