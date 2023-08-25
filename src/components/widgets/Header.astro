@@ -4,6 +4,7 @@ import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import EasterEgg from '~/components/EasterEgg.astro';
+import AzureActiveDirectory from '~/components/react/AzureActiveDirectory';
 
 import { getHomePermalink } from '~/utils/permalinks';
 
@@ -121,5 +122,6 @@ const {
         }
       </div>
     </div>
+    <AzureActiveDirectory client:load></AzureActiveDirectory>
   </div>
 </header>
