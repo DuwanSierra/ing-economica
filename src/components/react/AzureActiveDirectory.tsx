@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { AccountInfo, PopupRequest, PublicClientApplication } from "@azure/msal-browser";
 
 const AzureAD = {
-    CLIENT_ID: import.meta.env.VITE_AZURE_CLIENT_ID,
-    TENANT_ID: import.meta.env.VITE_AZURE_TENANT_ID
+    CLIENT_ID: import.meta.env.PUBLIC_AZURE_CLIENT_ID,
+    TENANT_ID: import.meta.env.PUBLIC_AZURE_TENANT_ID
 };
 
 const AzureActiveDirectory:React.FC = () => {
