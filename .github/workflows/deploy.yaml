@@ -23,8 +23,8 @@ jobs:
     - name: Install, build, and upload your site output
       uses: withastro/action@v0
       env:
-        AZURE_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
-        AZURE_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
+        VITE_AZURE_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
+        VITE_AZURE_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
       with:
         package-manager: pnpm
 

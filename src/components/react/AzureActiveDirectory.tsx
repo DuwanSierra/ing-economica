@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { AccountInfo, PopupRequest, PublicClientApplication } from "@azure/msal-browser";
 
-const msalConfig = {
-    auth: {
-        clientId: import.meta.env.AZURE_CLIENT_ID,
-        'authority': `https://login.microsoftonline.com/${import.meta.env.AZURE_TENANT_ID}`
-    }
+const AzureAD = {
+    CLIENT_ID: import.meta.env.VITE_AZURE_CLIENT_ID,
+    TENANT_ID: import.meta.env.VITE_AZURE_TENANT_ID
 };
 
 const AzureActiveDirectory:React.FC = () => {
+
+    const msalConfig = {
+        auth: {
+            clientId: `${AzureAD.CLIENT_ID}`,
+            'authority': `https://login.microsoftonline.com/${AzureAD.TENANT_ID}`
+        }
+    };
+
+    console.log(msalConfig);
+    console.log(AzureAD);
+
     const [userInfo, setUserInfo] = useState<AccountInfo>();
     const initAD = async () => {
         const msalInstance = await PublicClientApplication.createPublicClientApplication(msalConfig);
@@ -18,7 +27,6 @@ const AzureActiveDirectory:React.FC = () => {
             alert(`Bievenido - ${account?.name}`);
         }
     };
-
   return (
     <div className='basis-2/4'>
         {
