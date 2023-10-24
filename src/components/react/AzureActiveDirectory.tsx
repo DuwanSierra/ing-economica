@@ -3,8 +3,8 @@ import { AccountInfo, PopupRequest, PublicClientApplication } from "@azure/msal-
 
 const msalConfig = {
     auth: {
-        clientId: 'clientcode',
-        'authority': 'https://login.microsoftonline.com/{tenant_id}'
+        clientId: import.meta.env.AZURE_CLIENT_ID,
+        'authority': `https://login.microsoftonline.com/${import.meta.env.AZURE_TENANT_ID}`
     }
 };
 
