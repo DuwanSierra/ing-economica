@@ -14,6 +14,11 @@ permissions:
   pages: write
   id-token: write
 
+
+env:
+  VITE_AZURE_CLIENT_ID: ${{secrets.VITE_AZURE_CLIENT_ID}}
+  VITE_AZURE_TENANT_ID: ${{secrets.VITE_AZURE_CLIENT_ID}}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,9 +27,6 @@ jobs:
       uses: actions/checkout@v3
     - name: Install, build, and upload your site output
       uses: withastro/action@v0
-      env:
-        VITE_AZURE_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
-        VITE_AZURE_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
       with:
         package-manager: pnpm
 
